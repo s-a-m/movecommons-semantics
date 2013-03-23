@@ -15,14 +15,14 @@
 # Metadata
 
 <http://movecommons.org/ns#> a owl:Ontology ;
-    owl:versionInfo "20130319" ;
+    owl:versionInfo "20130323" ;
     dcterms:identifier <http://movecommons.org/ns> ;
     dcterms:title "Move Commons vocabulary"@en ;
     dcterms:subject dbpedia:Commons ;
     dcterms:coverage dbpedia:World ;
     dcterms:audience dbpedia:Community ;
     dcterms:created "2010-07-03"^^xsd:date ;
-    dcterms:modified "2013-03-19"^^xsd:date ;
+    dcterms:modified "2013-03-23"^^xsd:date ;
     dcterms:issued "2011-05-24"^^xsd:date ; 
     vann:preferredNamespacePrefix "mc" ;
     vann:preferredNamespaceUri "http://movecommons.org/ns#" ;
