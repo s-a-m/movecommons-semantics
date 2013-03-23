@@ -216,14 +216,14 @@ mc:Supplies a mc:Benefit ;
 mc:MajorityVoting a mc:FormOrganization ;
     rdfs:subClassOf mc:FormOrganization ;
     rdfs:label "Majority Voting" ;
-    rdfs:comment "A Collective follows majority voting for its decision-making"@en ;
+    rdfs:comment "A Collective follows majority voting for most of its decision-making"@en ;
     rdfs:isDefinedBy mc: ;
     vs:term_status "unstable"@en .
 
 mc:Consensus a mc:FormOrganization ;
     rdfs:subClassOf mc:FormOrganization ;
     rdfs:label "Consensus" ;
-    rdfs:comment "A Collective follows consensus for its decision-making"@en ;
+    rdfs:comment "A Collective follows consensus for most of its decision-making"@en ;
     rdfs:isDefinedBy mc: ;
     vs:term_status "unstable"@en .
 
