@@ -71,8 +71,14 @@ mc:OnlineTool a rdfs:Class, owl:Class ;
     rdfs:isDefinedBy mc: ;
     vs:term_status "unstable"@en .
 
+mc:FormOrganization a rdfs:Class, owl:Class ;
+    rdfs:label "A form of organization" ;
+    rdfs:comment "A form of organization followed by a Collective"@en ;
+    rdfs:isDefinedBy mc: ;
+    vs:term_status "unstable"@en .
+
 mc: a owl:AllDisjointClasses;
-    owl:members ( mc:Commons mc:Collective mc:CommonsDomain mc:Volunteer mc:Benefit mc:OnlineTool ) .
+    owl:members ( mc:Commons mc:Collective mc:CommonsDomain mc:Volunteer mc:Benefit mc:OnlineTool mc:FormOrganization ) .
 
 # ==========
 # Subclasses
@@ -204,6 +210,40 @@ mc:Supplies a mc:Benefit ;
     rdfs:isDefinedBy mc: ;
     vs:term_status "unstable"@en .
 
+# Forms of Organization
+# --------
+
+mc:MajorityVoting a mc:FormOrganization ;
+    rdfs:subClassOf mc:FormOrganization ;
+    rdfs:label "Majority Voting" ;
+    rdfs:comment "A Collective follows majority voting for its decision-making"@en ;
+    rdfs:isDefinedBy mc: ;
+    vs:term_status "unstable"@en .
+
+mc:Consensus a mc:FormOrganization ;
+    rdfs:subClassOf mc:FormOrganization ;
+    rdfs:label "Consensus" ;
+    rdfs:comment "A Collective follows consensus for its decision-making"@en ;
+    rdfs:isDefinedBy mc: ;
+    vs:term_status "unstable"@en .
+
+mc:MajorityVoting owl:disjointWith mc:Consensus .
+mc:Consensus owl:disjointWith mc:MajorityVoting .
+
+mc:Assembly a mc:FormOrganization ;
+    rdfs:subClassOf mc:FormOrganization ;
+    rdfs:label "Assembly" ;
+    rdfs:comment "A Collective mainly uses general assemblies for its decision-making"@en ;
+    rdfs:isDefinedBy mc: ;
+    vs:term_status "unstable"@en .
+
+mc:DemocraticRepresentatives a mc:FormOrganization ;
+    rdfs:subClassOf mc:FormOrganization ;
+    rdfs:label "Democratic Representatives" ;
+    rdfs:comment "A Collective democratically elects representatives for its decision-making"@en ;
+    rdfs:isDefinedBy mc: ;
+    vs:term_status "unstable"@en .
+
 # ==========
 # Properties
 # ==========
@@ -318,8 +358,6 @@ mc:sharesInternalProcedures a rdfs:Property, owl:ObjectProperty ;
     rdfs:range rdfs:Resource ;
     vs:term_status "unstable"@en .
 
-
-
 # Collective Properties concerning Pages:
 
 mc:howToHelpPage a rdfs:Property, owl:ObjectProperty ;
@@ -396,6 +434,22 @@ mc:wouldBenefitFromSupply
     vs:term_status "unstable"@en .
 
 # Other Collective Properties
+
+mc:hasFormOrg a rdfs:Property, owl:ObjectProperty ;
+    rdfs:label "has form of organization" ;
+    rdfs:comment "a Collective follows a form of organization"@en ;
+    rdfs:isDefinedBy mc: ;
+    rdfs:domain mc:Collective ;
+    rdfs:range mc:FormOrganization ;
+    vs:term_status "unstable"@en .
+
+mc:language a rdfs:Property, owl:ObjectProperty ;
+    rdfs:label "language" ;
+    rdfs:comment "a Collective communicates using a language"@en ;
+    rdfs:isDefinedBy mc: ;
+    rdfs:domain mc:Collective ;
+    rdfs:range dcterms:language ;
+    vs:term_status "unstable"@en .
 
 mc:license a rdfs:Property, owl:ObjectProperty ;
     rdfs:label "license" ;
