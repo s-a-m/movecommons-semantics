@@ -15,14 +15,14 @@
 # Metadata
 
 <http://movecommons.org/ns#> a owl:Ontology ;
-    owl:versionInfo "20100704" ;
+    owl:versionInfo "20130319" ;
     dcterms:identifier <http://movecommons.org/ns> ;
     dcterms:title "Move Commons vocabulary"@en ;
     dcterms:subject dbpedia:Commons ;
     dcterms:coverage dbpedia:World ;
     dcterms:audience dbpedia:Community ;
     dcterms:created "2010-07-03"^^xsd:date ;
-    dcterms:modified "2010-08-01"^^xsd:date ;
+    dcterms:modified "2013-03-19"^^xsd:date ;
     dcterms:issued "2011-05-24"^^xsd:date ; 
     vann:preferredNamespacePrefix "mc" ;
     vann:preferredNamespaceUri "http://movecommons.org/ns#" ;
@@ -254,14 +254,6 @@ mc:isReinforcedBy a rdfs:Property, owl:ObjectProperty ;
     rdfs:range mc:Collective ;
     vs:term_status "unstable"@en .
 
-mc:shares a rdfs:Property, owl:ObjectProperty ;
-    rdfs:label "shares" ;
-    rdfs:comment "a Reproducible Collective shares a Resource"@en ;
-    rdfs:isDefinedBy mc: ;
-    rdfs:domain mc:Reproducible ;
-    rdfs:range rdfs:Resource ;
-    vs:term_status "unstable"@en .
-
 mc:focusesIn a rdfs:Property, owl:ObjectProperty ;
     rdfs:label "focuses in" ;
     rdfs:comment "a Collective has a focus in a Commons Domain"@en ;
@@ -280,6 +272,56 @@ mc:isFocusOf a rdfs:Property, owl:ObjectProperty ;
     owl:inverseOf mc:focusesIn ;
     vs:term_status "unstable"@en .
 
+# Collective Properties concerning Sharing:
+
+mc:shares a rdfs:Property, owl:ObjectProperty ;
+    rdfs:label "shares" ;
+    rdfs:comment "a Reproducible Collective shares a Resource"@en ;
+    rdfs:isDefinedBy mc: ;
+    rdfs:domain mc:Reproducible ;
+    rdfs:range rdfs:Resource ;
+    vs:term_status "unstable"@en .
+
+mc:sharesFundingSource a rdfs:Property, owl:ObjectProperty ;
+    rdfs:subPropertyOf mc:shares ;
+    rdfs:label "shares funding source" ;
+    rdfs:comment "a Reproducible Collective shares documentation on a funding source"@en ;
+    rdfs:isDefinedBy mc: ;
+    rdfs:domain mc:Reproducible ;
+    rdfs:range rdfs:Resource ;
+    vs:term_status "unstable"@en .
+
+mc:sharesInternalOrganization a rdfs:Property, owl:ObjectProperty ;
+    rdfs:subPropertyOf mc:shares ;
+    rdfs:label "shares internal organization" ;
+    rdfs:comment "a Reproducible Collective shares documentation on its internal organization"@en ;
+    rdfs:isDefinedBy mc: ;
+    rdfs:domain mc:Reproducible ;
+    rdfs:range rdfs:Resource ;
+    vs:term_status "unstable"@en .
+
+mc:sharesMemberList a rdfs:Property, owl:ObjectProperty ;
+    rdfs:subPropertyOf mc:shares ;
+    rdfs:label "shares member list" ;
+    rdfs:comment "a Reproducible Collective shares its member list"@en ;
+    rdfs:isDefinedBy mc: ;
+    rdfs:domain mc:Reproducible ;
+    rdfs:range rdfs:Resource ;
+    vs:term_status "unstable"@en .
+
+mc:sharesInternalProcedures a rdfs:Property, owl:ObjectProperty ;
+    rdfs:subPropertyOf mc:shares ;
+    rdfs:label "shares internal procedures" ;
+    rdfs:comment "a Reproducible Collective shares documentation on its internal procedures and proceedings"@en ;
+    rdfs:isDefinedBy mc: ;
+    rdfs:domain mc:Reproducible ;
+    rdfs:range rdfs:Resource ;
+    vs:term_status "unstable"@en .
+
+
+
+# Collective Properties concerning Pages:
+
 mc:howToHelpPage a rdfs:Property, owl:ObjectProperty ;
     rdfs:subPropertyOf foaf:page ;
     rdfs:label "how to help page" ;
@@ -289,21 +331,43 @@ mc:howToHelpPage a rdfs:Property, owl:ObjectProperty ;
     rdfs:range foaf:Page ;
     vs:term_status "unstable"@en .
 
-mc:locationActivity a rdfs:Property, owl:ObjectProperty ;
-    rdfs:label "location activity" ;
-    rdfs:comment "a Collective develops its activity in a location"@en ;
+mc:officiallyRegisteredPage a rdfs:Property, owl:ObjectProperty ;
+    rdfs:subPropertyOf foaf:page ;
+    rdfs:label "officially registered page" ;
+    rdfs:comment "a Collective has a web page where it shows its official registration information"@en ;
     rdfs:isDefinedBy mc: ;
     rdfs:domain mc:Collective ;
-    rdfs:range rdfs:Resource ;
+    rdfs:range foaf:Page ;
     vs:term_status "unstable"@en .
 
-mc:hasOnlineTool a rdfs:Property, owl:ObjectProperty ;
-    rdfs:label "has tool" ;
-    rdfs:comment "a Collective offers an online tool"@en ;
+mc:openAccountingPage a rdfs:Property, owl:ObjectProperty ;
+    rdfs:subPropertyOf foaf:page ;
+    rdfs:label "open accounting page" ;
+    rdfs:comment "a Collective has a web page where it shows its open accounting"@en ;
     rdfs:isDefinedBy mc: ;
     rdfs:domain mc:Collective ;
-    rdfs:range mc:OnlineTool ;
+    rdfs:range foaf:Page ;
     vs:term_status "unstable"@en .
+
+mc:donationPage a rdfs:Property, owl:ObjectProperty ;
+    rdfs:subPropertyOf foaf:page ;
+    rdfs:label "donation page" ;
+    rdfs:comment "a Collective has a web page where it welcomes donations"@en ;
+    rdfs:isDefinedBy mc: ;
+    rdfs:domain mc:Collective ;
+    rdfs:range foaf:Page ;
+    vs:term_status "unstable"@en .
+
+mc:tosPage a rdfs:Property, owl:ObjectProperty ;
+    rdfs:subPropertyOf foaf:page ;
+    rdfs:label "terms of use page" ;
+    rdfs:comment "a Collective has a web page showing the Terms of Use of its contents"@en ;
+    rdfs:isDefinedBy mc: ;
+    rdfs:domain mc:Collective ;
+    rdfs:range foaf:Page ;
+    vs:term_status "unstable"@en .
+
+# Collective Properties concerning Benefits
 
 mc:wouldBenefitFrom a rdfs:Property, owl:ObjectProperty ;
     rdfs:label "would benefit from" ;
@@ -329,6 +393,32 @@ mc:wouldBenefitFromSupply
     rdfs:isDefinedBy mc: ;
     rdfs:domain mc:Collective ;
     rdfs:range mc:Supplies ;
+    vs:term_status "unstable"@en .
+
+# Other Collective Properties
+
+mc:license a rdfs:Property, owl:ObjectProperty ;
+    rdfs:label "license" ;
+    rdfs:comment "a Collective uses this license for its works"@en ;
+    rdfs:isDefinedBy mc: ;
+    rdfs:domain mc:Collective ;
+    rdfs:range cc:license ;
+    vs:term_status "unstable"@en .
+
+mc:locationActivity a rdfs:Property, owl:ObjectProperty ;
+    rdfs:label "location activity" ;
+    rdfs:comment "a Collective develops its activity in a location"@en ;
+    rdfs:isDefinedBy mc: ;
+    rdfs:domain mc:Collective ;
+    rdfs:range rdfs:Resource ;
+    vs:term_status "unstable"@en .
+
+mc:hasOnlineTool a rdfs:Property, owl:ObjectProperty ;
+    rdfs:label "has tool" ;
+    rdfs:comment "a Collective offers an online tool"@en ;
+    rdfs:isDefinedBy mc: ;
+    rdfs:domain mc:Collective ;
+    rdfs:range mc:OnlineTool ;
     vs:term_status "unstable"@en .
 
 # Volunteer properties
